@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+body{font-family: 'Sofia Pro';background-color: #1d1d1d;}
+
+        h1{font-weight: 500;font-size: 50px; color: #ffffff; text-align: center; margin: 100px 0 30px 0;}
+
+        .headerMenu{display: flex; width: 100%; height: 70px; background-color: #A334FB; padding: 0 30px; align-items: center; position: relative;
+            .left{width: 50%;
+                .logo{
+                    a{font-weight: 500; font-size: 24px; line-height: 30px; color: #ffffff;}
+                }
+            }
+            .right{width: 50%;height: 100%; display: flex; justify-content: flex-end;
+                ul.mainMenuList{display: flex; align-items: center; height: 100%;
+                    li.mainMenuItem{margin: 0 30px 0 0;  display: flex; align-items: center;
+                        &:last-child{margin: 0;}
+                        &:hover{height: 100%;
+                            .subMenu{opacity: 1; visibility: visible;
+                            }
+                        }
+                        &.open{
+                            a.menuLink{position: relative; padding: 0 20px 0 0;
+                                &::before{content: ""; width: 10px; height: 7px; background-repeat: no-repeat; background-image: url(../img/dropdown-icon.png);position: absolute; top: calc(50% - 3.5px); right: 0; }
+                            }
+                        }
+                        a.menuLink{font-weight: 500; font-size: 18px; line-height: 26px; color: #ffffff;}
+                        .subMenu{opacity: 0; visibility: hidden; transition: all 0.2s ease-in-out; display: flex; flex-wrap: wrap; position: absolute; top: 70px; left: 0; width: 100%; background-color: #ffffff; padding: 30px 30px 0 30px;
+                            .column{width: 25%; padding: 0 0 30px 0;
+                                .title{font-weight: bold; font-size: 16px; line-height: 24px; color: #1d1d1d; margin: 0 0 10px 0;}
+                                ul.subMenuList{
+                                    li.subMenuItem{ position: relative; padding:0 0 0 20px;
+                                        &::before{content: ""; width: 5px; height: 5px; position: absolute; top: calc(50% - 2.5px); left: 0; background-color: #A334FB; border-radius: 50%;}
+                                        a{font-weight: 500; font-size: 16px; line-height: 24px; color: #1d1d1d; position: relative; display: inline-block; overflow: hidden;
+                                            &::before{content: ""; width: 0; height: 1px; background-color: #1d1d1d; position: absolute; bottom: 0; right: 0; left: auto; transition: all 0.3s ease-in-out;}
+                                            &:hover{
+                                                &::before{width: 100%; right: auto; left: 0;}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .devLinkBox{width: 100%; display: flex; justify-content: center; padding: 30px 0;
+            a{font-weight: 500; color: #ffffff; font-size: 20px; line-height: 26px;}
+        }
+
+
+
+@media screen and (max-width: 1199px){
+    .headerMenu {
+        .right {
+            ul.mainMenuList {
+                li.mainMenuItem {
+                    .subMenu{
+                        .column{width: 50%;}
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 991px){
+    h1{font-size: 40px;}
+    .headerMenu {display: flex; flex-direction: column; height: 100px; padding: 15px;
+        .left{width: 100%;  display: flex; justify-content: center; margin: 0 0 15px 0;}
+        .right {width: 100%; display: flex; justify-content: center;
+            ul.mainMenuList {
+                li.mainMenuItem {margin: 0 15px 0 0;
+                    a.menuLink{font-size: 16px;line-height: 24px;}
+                    .subMenu{padding: 15px 15px 0 15px;top: 100px;
+                        .column{width: 100%;padding: 0 0 15px 0;
+                            .title{font-size: 14px;line-height: 22px;}
+                            ul.subMenuList {
+                                li.subMenuItem {
+                                    a{font-size: 14px; line-height: 22px;}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px){
+    h1{font-size: 30px;margin: 50px 0 30px 0;}
+}
